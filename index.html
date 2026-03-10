@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YaaBoo — знакомства</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Экран регистрации/входа -->
+    <div id="register-screen" class="screen active">
+        <div class="register-container">
+            <h1>YaaBoo</h1>
+            
+            <!-- Форма регистрации -->
+            <form id="register-form" class="auth-form">
+                <select id="gender" required>
+                    <option value="">Выберите пол</option>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                    <option value="other">Другой</option>
+                </select>
+
+                <input type="email" id="email" placeholder="Электронная почта" required>
+                <input type="text" id="fullname" placeholder="ФИО" required>
+                <input type="text" id="username" placeholder="Логин" required>
+                <input type="password" id="password" placeholder="Пароль" required>
+                <input type="password" id="password2" placeholder="Подтверждение пароля" required>
+
+                <div class="social-row">
+                    <select id="social-type">
+                        <option value="tg">Telegram</option>
+                        <option value="vk">VK</option>
+                    </select>
+                    <input type="url" id="social-link" placeholder="Ссылка на соцсеть" required>
+                </div>
+
+                <textarea id="bio" placeholder="О себе (минимум 20 символов)" rows="1" required></textarea>
+
+                <input type="file" id="photo-upload" accept="image/*" required style="display: none;">
+                <button type="button" id="upload-photo-btn" class="upload-btn">📸 Загрузить фото</button>
+                <img id="photo-preview" class="photo-preview" src="#" alt="Превью" style="display: none;">
+
+                <button type="submit" id="register-btn" disabled>Зарегистрироваться</button>
+            </form>
+
+            <!-- Форма входа (изначально скрыта) -->
+            <form id="login-form" class="auth-form" style="display: none;">
+                <input type="text" id="login-username" placeholder="Логин" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+                <button type="submit" id="login-btn">Войти</button>
+            </form>
+
+            <!-- Переключатель между формами -->
+            <div class="auth-switch">
+                <span id="switch-to-login">Есть аккаунт? Войти</span>
+                <span id="switch-to-register" style="display: none;">Нет аккаунта? Зарегистрироваться</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основное приложение -->
+    <div id="main-screen" class="screen">
+        <!-- Контент вкладок -->
+        <div id="content-area"></div>
+
+        <!-- Нижняя навигация -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="home">
+                <span class="icon">🏠</span>
+                <span class="label">Главная</span>
+            </button>
+            <button class="nav-item" data-tab="profiles">
+                <span class="icon">👥</span>
+                <span class="label">Анкеты</span>
+            </button>
+            <button class="nav-item" data-tab="likes">
+                <span class="icon">❤️</span>
+                <span class="label">Лайки</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <span class="icon">👤</span>
+                <span class="label">Профиль</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
